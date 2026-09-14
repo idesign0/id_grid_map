@@ -14,7 +14,8 @@ find_package(yaml_cpp_vendor REQUIRED)
 
 find_package(OpenMP QUIET)
 if(OpenMP_FOUND)
-  add_compile_options("${OpenMP_CXX_FLAGS}")
+  separate_arguments(_gmp_omp_flags NATIVE_COMMAND "${OpenMP_CXX_FLAGS}")
+  add_compile_options(${_gmp_omp_flags})
   add_definitions(-DGRID_MAP_PCL_OPENMP_FOUND=${OpenMP_FOUND})
 endif()
 
