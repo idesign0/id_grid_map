@@ -128,7 +128,7 @@ void processPointcloud(
   grid_map::GridMapPclLoader * gridMapPclLoader,
   rclcpp::Node::SharedPtr & node)
 {
-  const auto start = std::chrono::high_resolution_clock::now();
+  const auto start = std::chrono::system_clock::now();
   gridMapPclLoader->preProcessInputCloud();
   gridMapPclLoader->initializeGridMapGeometryFromInputCloud();
   printTimeElapsedToRosInfoStream(

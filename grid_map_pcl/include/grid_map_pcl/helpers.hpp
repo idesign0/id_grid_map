@@ -46,7 +46,7 @@ inline void printTimeElapsedToRosInfoStream(
   const std::string & prefix,
   const rclcpp::Logger & node_logger)
 {
-  const auto stop = std::chrono::high_resolution_clock::now();
+  const auto stop = std::chrono::system_clock::now();
   const auto duration =
     std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() / 1000.0;
   RCLCPP_INFO_STREAM(node_logger, prefix << duration << " sec");
